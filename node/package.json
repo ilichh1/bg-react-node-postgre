@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ilichh1/bg-react-node-postgre#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
