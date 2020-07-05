@@ -1,31 +1,34 @@
-const http = require('http');
-const { Todo } = require('./models');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const HTTP_PORT = process.env.NODE_API_PORT;
+// Environment variable in which the API will be listening for requests
+const HTTP_PORT = process.env.NODE_API_PORT || 8080;
 
-//create a server object:
-http.createServer(function (req, res) {
-  res.write('Hello World!'); //write a response to the client
-  res.end(); //end the response
-}).listen(HTTP_PORT); //the server object listens on port 8080
+// Endpoints de nuestra API REST
+const endpoints = require('./endpoints');
+// Instancia de expressjs
+const app = express();
 
-console.log('este es el backend del gonzalo');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+ 
+// parse application/json
+app.use(bodyParser.json());
 
-/* Todo
-  .create({
-    title: 'Esto es un pendiente',
-    body: '¿Que tenía que hacer? Ya ni me acuerdo =('
-  })
-  .then(createdTodo => {
-    console.log(`Se creó un TODO con el ID: ${createdTodo.id}`);
-  }); */
+// Redirect all requests made to the root path
+app.all('/', (req, res) => {
+  res.redirect('http://ilichh1.com');
+});
 
-/* Todo.destroy({
-  where: {
-    id: 1
-  }
-})
-.then(response => {
-  console.log(response);
-  console.log('Borrado un TODO');
-}) */
+// Custom function to send responses
+app.use((req, res, next) => {
+  res['apiResponse'] = response => res.json({
+    data: response
+  });
+  return next();
+});
+
+// Endpoints para la Gonzalo API (express routing https://expressjs.com/en/guide/routing.html)
+app.use('/api', endpoints);
+
+app.listen(HTTP_PORT, () => console.log(`El backend de GonzaloApp esta escuchando en http://localhost:${HTTP_PORT}`))
