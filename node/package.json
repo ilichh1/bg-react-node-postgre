@@ -1,0 +1,29 @@
+{
+  "name": "gonzalo-api",
+  "version": "1.0.0",
+  "description": "Una simple API Rest para la Gonzalo API que lleva el registro de TODOs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilichh1/bg-react-node-postgre.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "gonzalo",
+    "app"
+  ],
+  "author": "ilichh1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilichh1/bg-react-node-postgre/issues"
+  },
+  "homepage": "https://github.com/ilichh1/bg-react-node-postgre#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
