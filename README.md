@@ -11,6 +11,10 @@ Desafortunadamente Gonzalo no tiene buena memoria, es por eso que necesita una S
 Gonzalo quiere que sus pendientes (TODOs) se almacenen en una base de datos segura, robusta y eficiente (PostgreSQL), quiere que sus datos se procesen (en el backend) de una forma escalable y que pueda modificar su logica de negocios en algún futuro de forma sencilla (Node.js).     
 Gonzalo espera que la arquitectura de su proyecto también sea escalable y fácil de replicar, por si algún día su proveedor de servicios en la nube (CloudCone) ya no puede cubrir sus necesidades y necesita más almacenamiento, más memoria, mas poder de computación... o si sencillamente desea pagar más.
 
+# Solución
+![Diagrama de la solucion](docs/img/solution-diagram.jpg)  
+Diagrama _meramente_ ilustrativo de la solución propuesta.
+
 ## Versiones
 * React 16.13.1 (w/ create-react-app)
 * Node.js 12.18.2 (Docker image: node:12.18.2-alpine3.12)
