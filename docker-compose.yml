@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  # Aquí se sirven todos los archivos estaticos generados por React
+  web:
+    container_name: reacto
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    tty: true
+
+  # La API Rest esta en este servicio (con Node.js)
+  api:
+    container_name: gonzapi
+    build:
+      context: ./node
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+
+  # Nuestra DB (PostgreSQL) se monta aquí
+  database:
+    container_name: gonzadb
+    build:
+      context: ./postgre
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "5432:5432"
