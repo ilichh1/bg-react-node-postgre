@@ -1,4 +1,5 @@
 const http = require('http');
+const { Todo } = require('./models');
 
 const HTTP_PORT = process.env.NODE_API_PORT;
 
@@ -9,3 +10,12 @@ http.createServer(function (req, res) {
 }).listen(HTTP_PORT); //the server object listens on port 8080
 
 console.log('este es el backend del gonzalo');
+
+Todo
+  .create({
+    title: 'Esto es un pendiente',
+    body: '¿Que tenía que hacer? Ya ni me acuerdo =('
+  })
+  .then(createdTodo => {
+    console.log(`Se creó un TODO con el ID: ${createdTodo.id}`);
+  });
